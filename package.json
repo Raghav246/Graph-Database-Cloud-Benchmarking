@@ -1,0 +1,34 @@
+{
+  "name": "graph-database-cloud-benchmarking",
+  "version": "1.0.0",
+  "description": "Reproducible, honest benchmark suite comparing CognoDB Cloud against other managed/self-hosted graph databases on identical datasets and workloads.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "generate:data": "node src/dataset/generate.js",
+    "bench:cognodb": "node src/index.js --db cognodb",
+    "bench:neo4j-aura": "node src/index.js --db neo4j-aura",
+    "bench:memgraph": "node src/index.js --db memgraph",
+    "bench:arangodb": "node src/index.js --db arangodb",
+    "bench:janusgraph": "node src/index.js --db janusgraph",
+    "all": "node src/index.js --all"
+  },
+  "keywords": [
+    "graph-database",
+    "benchmark",
+    "cognodb",
+    "neo4j",
+    "memgraph",
+    "arangodb",
+    "janusgraph"
+  ],
+"license": "MIT",
+  "dependencies": {
+    "arangojs": "^8.8.0",
+    "dotenv": "^16.4.5",
+    "gremlin": "^3.7.2",
+    "neo4j-driver": "^5.24.0"
+  },
+  "devDependencies": {}
+}

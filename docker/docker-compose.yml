@@ -1,0 +1,65 @@
+version: "3.9"
+
+# Self-hosted graph databases, each resource-capped to match CognoDB Cloud's
+# free c0 tier (burstable 0.5 vCPU, 256 MB RAM, 1 GB disk) for FAIR comparison.
+#
+# Start:  docker compose up -d
+# Stop:   docker compose down
+# Reset:  docker compose down -v   (removes volumes)
+
+services:
+  memgraph:
+    image: memgraph/memgraph-platform:latest
+    container_name: benchmark-memgraph
+    ports:
+      - "7687:7687"   # Bolt
+      - "7444:7444"   # Web UI
+    command: ["--telemetry-enabled=false"]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+    mem_limit: 256m
+    cpus: 0.5
+    shm_size: 256m
+    volumes:
+      - memgraph-data:/var/lib/memgraph
+
+  arangodb:
+    image: arangodb/arangodb:latest
+    container_name: benchmark-arangodb
+    ports:
+      - "8529:8529"   # HTTP API
+    environment:
+      ARANGO_NO_AUTH: "1"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+    mem_limit: 256m
+    cpus: 0.5
+    volumes:
+      - arangodb-data:/var/lib/arangodb3
+
+  janusgraph:
+    image: janusgraph/janusgraph:latest
+    container_name: benchmark-janusgraph
+    ports:
+      - "8182:8182"   # Gremlin Server
+      - "8183:8183"   # Gremlin Server (ws)
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+    mem_limit: 256m
+    cpus: 0.5
+    volumes:
+      - janusgraph-data:/var/lib/janusgraph
+
+volumes:
+  memgraph-data:
+  arangodb-data:
+  janusgraph-data:

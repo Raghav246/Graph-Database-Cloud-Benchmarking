@@ -1,0 +1,150 @@
+[
+  {
+    "platform": "cognodb",
+    "platformName": "CognoDB Cloud",
+    "tier": "Free c0 (burstable)",
+    "specs": {
+      "vcpu": "0.5",
+      "ram": "256 MB",
+      "disk": "1 GB"
+    },
+    "startedAt": "2026-08-07T05:49:07.733Z",
+    "dataset": {
+      "nodes": 30000,
+      "edges": 100000
+    },
+    "metrics": {
+      "load": {
+        "skipped": true,
+        "nodeCount": 30000,
+        "edgeCount": 100000
+      },
+      "traversal": {
+        "traversal1hop": {
+          "count": 100,
+          "mean": 339.985,
+          "p50": 350.768,
+          "p95": 431.887,
+          "min": 233.499,
+          "max": 609.073
+        },
+        "traversal2hop": {
+          "count": 100,
+          "mean": 348.233,
+          "p50": 377.421,
+          "p95": 413.796,
+          "min": 235.935,
+          "max": 433.637
+        },
+        "_errors": {
+          "traversal3hop": [
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server",
+            "Connection was closed by server"
+          ]
+        },
+        "traversal3hop": {
+          "count": 100,
+          "mean": 2087.633,
+          "p50": 575.142,
+          "p95": 1027.341,
+          "min": 238.042,
+          "max": 91194.35
+        }
+      },
+      "lookup": {
+        "pointLookup": {
+          "count": 100,
+          "mean": 438.752,
+          "p50": 404.207,
+          "p95": 1219.058,
+          "min": 244.693,
+          "max": 1681.892
+        },
+        "indexedLookup": {
+          "count": 100,
+          "mean": 366.587,
+          "p50": 398.008,
+          "p95": 416.944,
+          "min": 264.551,
+          "max": 1022.958
+        }
+      },
+      "aggregation": {
+        "aggregation": {
+          "count": 100,
+          "mean": 510.95,
+          "p50": 405.71,
+          "p95": 1432.004,
+          "min": 299.958,
+          "max": 1721.293
+        }
+      },
+      "mixed": [
+        {
+          "concurrency": 1,
+          "durationMs": 10000,
+          "completed": 29,
+          "failed": 0,
+          "qps": 2.9,
+          "latencyMs": {
+            "count": 29,
+            "mean": 349.291,
+            "p50": 344.595,
+            "p95": 416.325,
+            "min": 245.911,
+            "max": 1022.53
+          },
+          "readRatio": 0.8
+        },
+        {
+          "concurrency": 10,
+          "durationMs": 10000,
+          "completed": 260,
+          "failed": 0,
+          "qps": 26,
+          "latencyMs": {
+            "count": 260,
+            "mean": 393.699,
+            "p50": 404.915,
+            "p95": 609.188,
+            "min": 235.781,
+            "max": 1644.774
+          },
+          "readRatio": 0.8
+        },
+        {
+          "concurrency": 40,
+          "durationMs": 10000,
+          "completed": 1376,
+          "failed": 1,
+          "qps": 137.6,
+          "latencyMs": {
+            "count": 1376,
+            "mean": 294.176,
+            "p50": 250.813,
+            "p95": 349.383,
+            "min": 233.186,
+            "max": 1675.887
+          },
+          "readRatio": 0.8
+        }
+      ]
+    },
+    "finishedAt": "2026-08-07T05:56:56.941Z"
+  }
+]
